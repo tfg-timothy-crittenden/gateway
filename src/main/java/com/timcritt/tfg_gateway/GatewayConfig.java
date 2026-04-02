@@ -14,7 +14,7 @@ public class GatewayConfig {
                 .route("material-service", r -> r
                         .path("/materials/**")
                         .filters(f -> f.stripPrefix(1))
-                        .uri("lb://EXAM-SERVICE"))
+                        .uri("lb://MATERIAL-SERVICE"))
                 .route("user-service", r -> r
                         .path("/users/**")
                         .filters(f -> f.stripPrefix(1))
