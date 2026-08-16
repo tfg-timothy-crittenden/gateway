@@ -8,29 +8,29 @@ spring:
     config:
       enabled: false
     gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "https://tfg.timothycrittenden.com"
+              - "https://timothy-crittenden-tfg.netlify.app"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - Authorization
+              - Content-Type
+            exposedHeaders:
+              - Authorization
+            allowCredentials: true
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
-      routes:
-        - id: user-service
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/users/**
-          filters:
-            - StripPrefix=1
-        - id: exam-service
-          uri: lb://EXAM-SERVICE
-          predicates:
-            - Path=/tests/**
-          filters:
-            - StripPrefix=1
-        - id: classroom-service
-          uri: lb://CLASSROOM-SERVICE
-          predicates:
-            - Path=/classrooms/**
-          filters:
-            - StripPrefix=1
 
 eureka:
   client:

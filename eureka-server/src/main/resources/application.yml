@@ -13,7 +13,7 @@ eureka:
     fetch-registry: ${EUREKA_CLIENT_FETCH_REGISTRY:false}
   server:
     enable-self-preservation: true
-    response-cache-update-interval-ms: 30000
+    response-cache-update-interval-ms: 10000
 
 logging:
   level:
