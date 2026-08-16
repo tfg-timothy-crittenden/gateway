@@ -9,6 +9,7 @@ spring:
       enabled: false
     gateway:
       globalcors:
+        add-to-simple-url-handler-mapping: true
         corsConfigurations:
           '[/**]':
             allowedOrigins:
